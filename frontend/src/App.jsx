@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {createPhotoList(100)}
+      {createPhotoList(3)}
     </div>
   );
 };
