@@ -11,15 +11,19 @@ const PhotoListItem = (props) => {
     imageSource,
     username,
     profile
-  } = props.sampleData;
+  } = props.photo;
   
 
   return (
-    <div>
-      <img src={imageSource} />
-      <img src={profile} />
-      <p>{username}</p>
-      <p>{city}, {country}</p>
+    <div className="photo-list__item">
+      <img src={imageSource} className="photo-list__image"/>
+      <div className=".photo-list__user-details">
+        <img src={profile} className="photo-list__user-profile"/>
+        <div className="photo-list__user-info">
+          <p>{username}</p>
+          <p className="photo-list__user-locations">{city}, {country}</p>
+        </div>
+      </div>
     </div>
   )
 };
