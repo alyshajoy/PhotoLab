@@ -1,20 +1,9 @@
 import React from 'react';
 
 import PhotoList from 'components/PhotoList';
-import TopicList from 'components/TopicList';
 import TopNavigation from 'components/TopNavigationBar';
 import './App.scss';
-
-// const sampleDataForPhotoListItem = {
-// id: "1",
-// location: {
-//   city: "Montreal",
-//   country: "Canada",
-// },
-// imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-// username: "Joe Example",
-// profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-// };
+import HomeRoute from 'routes/HomeRoute';
 
 // const createPhotoList = (numOfPhotos) => {
   // const photoArray = [...Array(numOfPhotos)].map((_, i) => ({
@@ -30,11 +19,9 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-
   return (
     <div className="App">
-      <TopNavigation />
-      <PhotoList />
+      <HomeRoute />
     </div>
   );
 };
