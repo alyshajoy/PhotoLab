@@ -3,11 +3,12 @@ import React from "react";
 import "../styles/TopicList.scss";
 import "../styles/TopicListItem.scss";
 import TopicListItem from "./TopicListItem";
-import topics from "mocks/topics";
 
-const sampleDataForTopicList = topics;
+const TopicList = (props) => {
 
-const TopicList = () => {
+  const sampleDataForTopicList = props.topics;
+  console.log("DATA", sampleDataForTopicList);
+
   return (
     <div className="top-nav-bar__topic-list">
       {sampleDataForTopicList.map((topic) => {
