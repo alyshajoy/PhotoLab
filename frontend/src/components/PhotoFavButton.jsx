@@ -7,7 +7,7 @@ function PhotoFavButton() {
   const [selected, setSelected] = useState(false);
 
   const toggleSelected = () => {
-    setSelected(!selected);
+    setSelected(selected => !selected);
   };
 
   return (
