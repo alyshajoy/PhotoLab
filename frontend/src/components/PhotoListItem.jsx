@@ -2,6 +2,7 @@ import React from "react";
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 const PhotoListItem = (props) => {
@@ -15,7 +16,7 @@ const PhotoListItem = (props) => {
   
 
   return (
-    <div className="photo-list__item">
+    <div className="photo-list__item" onClick={props.toggleModal}>
       <PhotoFavButton addItemToFav={props.addItemToFav} item={props.photo}/>
       <img src={full} className="photo-list__image"/>
       <div className="photo-list__user-details">
