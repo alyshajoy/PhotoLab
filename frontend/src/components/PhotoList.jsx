@@ -11,7 +11,7 @@ const PhotoList = (props) => {
     <ul className="photo-list">
       {sampleDataForPhotoList.map((photo) => {
         return (
-        <PhotoListItem photo={photo} key={photo.id}/>
+        <PhotoListItem photo={photo} key={photo.id} addItemToFav={props.addItemToFav}/>
         )
       })}
     </ul>
