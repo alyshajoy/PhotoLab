@@ -17,6 +17,7 @@ const HomeRoute = (props) => {
         addItemToFav={props.addItemToFav} 
         fav={props.fav}
         toggleModal={props.toggleModal}
+        openPhotoData={props.openPhotoData}
       />
     </div>
   );

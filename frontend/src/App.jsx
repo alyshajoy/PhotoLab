@@ -12,6 +12,7 @@ const App = () => {
 
   const [fav, setFav] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openedPhoto, setOpenedPhoto] = useState();
 
   const addItemToFav = (item) => {
     setFav([...fav, item]);
@@ -21,6 +22,10 @@ const App = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const openPhotoData = (photo) => {
+    openedPhoto ? setOpenedPhoto(null) : setOpenedPhoto(photo);
+  }
+
   return (
     <div className="App">
       <HomeRoute 
@@ -29,8 +34,9 @@ const App = () => {
       addItemToFav={addItemToFav} 
       fav={fav} 
       toggleModal={toggleModal}
+      openPhotoData={openPhotoData}
       />
-      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} photos={photos}/>}
+      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} openedPhoto={openedPhoto} openPhotoData={openPhotoData}/>}
     </div>
   );
 };

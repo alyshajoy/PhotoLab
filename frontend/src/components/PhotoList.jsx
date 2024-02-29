@@ -16,6 +16,7 @@ const PhotoList = (props) => {
           key={photo.id} 
           addItemToFav={props.addItemToFav}
           toggleModal={props.toggleModal}
+          openPhotoData={props.openPhotoData}
         />
         )
       })}
