@@ -30,7 +30,7 @@ const App = () => {
       fav={fav} 
       toggleModal={toggleModal}
       />
-      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal}/>}
+      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} photos={photos}/>}
     </div>
   );
 };
