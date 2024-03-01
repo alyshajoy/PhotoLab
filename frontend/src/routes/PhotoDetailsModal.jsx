@@ -26,7 +26,11 @@ const PhotoDetailsModal = (props) => {
         }}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <PhotoListItem className="photo-details-modal__image" photo={focusedPhoto}/>
+      <PhotoListItem
+        className="photo-details-modal__image"
+        photo={focusedPhoto}
+        addItemToFav={props.addItemToFav}
+      />
       <h3 className="photo-details-modal__header">Similar Photos</h3>
       <PhotoList className="photo-details-modal__images" photos={focusedPhotoArray}/>
     </div>

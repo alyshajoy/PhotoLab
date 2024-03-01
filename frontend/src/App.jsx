@@ -41,6 +41,7 @@ const App = () => {
         toggleModal={toggleModal}
         focusedPhoto={focusedPhoto}
         getFocusedPhotoData={getFocusedPhotoData}
+        addItemToFav={addItemToFav}
       />}
     </div>
   );
