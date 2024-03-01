@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
@@ -12,7 +12,7 @@ const App = () => {
 
   const [fav, setFav] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [openedPhoto, setOpenedPhoto] = useState();
+  const [focusedPhoto, setFocusedPhoto] = useState();
 
   const addItemToFav = (item) => {
     setFav([...fav, item]);
@@ -22,21 +22,26 @@ const App = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const openPhotoData = (photo) => {
-    openedPhoto ? setOpenedPhoto(null) : setOpenedPhoto(photo);
+  const getFocusedPhotoData = (photo) => {
+    setFocusedPhoto(photo);
   }
 
   return (
     <div className="App">
       <HomeRoute 
-      topics={topics} 
-      photos={photos} 
-      addItemToFav={addItemToFav} 
-      fav={fav} 
-      toggleModal={toggleModal}
-      openPhotoData={openPhotoData}
+        topics={topics} 
+        photos={photos} 
+        addItemToFav={addItemToFav} 
+        fav={fav} 
+        toggleModal={toggleModal}
+        getFocusedPhotoData={getFocusedPhotoData}
+        isModalOpen={isModalOpen}
       />
-      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} openedPhoto={openedPhoto} openPhotoData={openPhotoData}/>}
+      {isModalOpen && <PhotoDetailsModal 
+        toggleModal={toggleModal}
+        focusedPhoto={focusedPhoto}
+        getFocusedPhotoData={getFocusedPhotoData}
+      />}
     </div>
   );
 };

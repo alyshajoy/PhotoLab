@@ -7,7 +7,6 @@ import TopicListItem from "./TopicListItem";
 const TopicList = (props) => {
 
   const sampleDataForTopicList = props.topics;
-  console.log("DATA", sampleDataForTopicList);
 
   return (
     <div className="top-nav-bar__topic-list">

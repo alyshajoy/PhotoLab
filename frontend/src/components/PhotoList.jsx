@@ -1,22 +1,25 @@
 import React from "react";
 
 import "../styles/PhotoList.scss";
+import "../styles/PhotoDetailsModal.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
 
-  const sampleDataForPhotoList = props.photos;
+  const photosArray = props.photos;
 
   return (
-    <ul className="photo-list">
-      {sampleDataForPhotoList.map((photo) => {
+    <ul className={props.className}>
+      {photosArray.map((photo) => {
         return (
         <PhotoListItem 
           photo={photo} 
           key={photo.id} 
           addItemToFav={props.addItemToFav}
           toggleModal={props.toggleModal}
-          openPhotoData={props.openPhotoData}
+          getFocusedPhotoData={props.getFocusedPhotoData}
+          isModalOpen={props.isModalOpen}
+          className="photo-list__image"
         />
         )
       })}

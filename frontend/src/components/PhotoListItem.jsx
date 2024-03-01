@@ -12,14 +12,22 @@ const PhotoListItem = (props) => {
     urls: {full, regular},
     user: {username, name, profile}
   } = props.photo;
-  
 
   return (
-    <div className="photo-list__item" onClick={() => {props.toggleModal(); props.openPhotoData(props.photo)}}>
+    <div className="photo-list__item">
       <PhotoFavButton addItemToFav={props.addItemToFav} item={props.photo}/>
-      <img src={full} className="photo-list__image"/>
+      <img 
+        src={full}
+        className={props.className}
+        onClick={() => {
+          props.toggleModal();
+          props.getFocusedPhotoData(props.photo);
+        }}/>
       <div className="photo-list__user-details">
-        <img src={profile} className="photo-list__user-profile"/>
+        <img 
+          src={profile} 
+          className="photo-list__user-profile"
+        />
         <div className="photo-list__user-info">
           <p>{name}</p>
           <p className="photo-list__user-locations">{city}, {country}</p>
