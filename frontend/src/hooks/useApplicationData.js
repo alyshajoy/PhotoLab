@@ -19,7 +19,7 @@ const reducer = (state, action) => {
     case 'SET_FOCUSED_PHOTO':
       return { ...state, focusedPhoto: action.payload };
     default:
-      throw new Error();
+      throw new Error("The type stated doesn't exist.");
   }
 }
 
