@@ -11,6 +11,7 @@ const HomeRoute = (props) => {
       <TopNavigation 
         topics={props.topics} 
         isFavPhotoExist={props.fav.length > 0}
+        setApiUrl={props.setApiUrl}
       />
       <PhotoList 
         photos={props.photos} 

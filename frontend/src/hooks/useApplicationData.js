@@ -1,11 +1,11 @@
-import { useReducer, useEffect } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 
 const initialState = {
   fav: [],
   isModalOpen: false,
   focusedPhoto: undefined,
   topics: [],
-  photos: []
+  photos: [],
 };
 
 const GET_PHOTOS_URL = "http://localhost:8001/api/photos";
@@ -31,12 +31,17 @@ const reducer = (state, action) => {
 
 export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [url, setUrl] = useState("http://localhost:8001/api/photos");
+
+  const setApiUrl = (topic_id) => {
+    setUrl(`http://localhost:8001/api/topics/photos/${topic_id}`)
+  }
   
   useEffect(() => {
-    fetch(GET_PHOTOS_URL)
+    fetch(url)
       .then(res => res.json())
       .then(data => dispatch({ type: 'SET_PHOTO_DATA', payload: data}))
-  }, [])
+  }, [url])
 
   useEffect(() => {
     fetch(GET_TOPICS_URL)
@@ -60,6 +65,7 @@ export default function useApplicationData() {
     state,
     addItemToFav,
     toggleModal,
-    getFocusedPhotoData
+    getFocusedPhotoData,
+    setApiUrl
   }
 }
