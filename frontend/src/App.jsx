@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
