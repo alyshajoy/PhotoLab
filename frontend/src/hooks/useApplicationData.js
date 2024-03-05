@@ -8,10 +8,6 @@ const initialState = {
   photos: [],
 };
 
-const GET_PHOTOS_URL = "http://localhost:8001/api/photos";
-const GET_TOPICS_URL = "http://localhost:8001/api/topics";
-const GET_PHOTOS_BY_TOPICS_URL = "http://localhost:8001/api/topics/photos/:topic_id";
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_ITEM_TO_FAV':
@@ -44,7 +40,7 @@ export default function useApplicationData() {
   }, [url])
 
   useEffect(() => {
-    fetch(GET_TOPICS_URL)
+    fetch("http://localhost:8001/api/topics")
       .then(res => res.json())
       .then(data => dispatch({ type: 'SET_TOPIC_DATA', payload: data}))
   }, [])

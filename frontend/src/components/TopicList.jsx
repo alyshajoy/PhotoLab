@@ -1,18 +1,15 @@
 import React from "react";
-
 import "../styles/TopicList.scss";
 import "../styles/TopicListItem.scss";
 import TopicListItem from "./TopicListItem";
 
-const TopicList = (props) => {
-
-  const sampleDataForTopicList = props.topics;
+const TopicList = ({ topics, setApiUrl }) => {
 
   return (
     <div className="top-nav-bar__topic-list">
-      {sampleDataForTopicList.map((topic) => {
+      {topics.map((topic) => {
         return (
-        <TopicListItem topic={topic} key={topic.id} setApiUrl={props.setApiUrl}/>
+        <TopicListItem topic={topic} key={topic.id} setApiUrl={setApiUrl}/>
         )
       })}
     </div>

@@ -1,27 +1,25 @@
 import React from "react";
-
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = (props) => {
+const PhotoListItem = ({ addItemToFav, photo, className, toggleModal, getFocusedPhotoData }) => {
 
   const {
-    id,
     location: {city, country},
-    urls: {full, regular},
-    user: {username, name, profile}
-  } = props.photo;
+    urls: {full},
+    user: {name, profile}
+  } = photo;
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton addItemToFav={props.addItemToFav} item={props.photo}/>
+      <PhotoFavButton addItemToFav={addItemToFav} item={photo}/>
       <img 
         src={full}
-        className={props.className}
+        className={className}
         onClick={() => {
-          props.toggleModal();
-          props.getFocusedPhotoData(props.photo);
+          toggleModal();
+          getFocusedPhotoData(photo);
         }}/>
       <div className="photo-list__user-details">
         <img 
