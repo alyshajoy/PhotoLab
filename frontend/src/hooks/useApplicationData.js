@@ -36,23 +36,29 @@ const reducer = (state, action) => {
 }
 
 export default function useApplicationData() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [url, setUrl] = useState("http://localhost:8001/api/photos");
 
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [url, setUrl] = useState("/api/photos");
+
+  // fetch data from new URL with the given topic_id
   const setApiUrl = (topic_id) => {
-    setUrl(`http://localhost:8001/api/topics/photos/${topic_id}`)
+    setUrl(`/api/topics/photos/${topic_id}`)
   }
   
+  // get image data for loading on main page
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
       .then(data => dispatch({ type: 'SET_PHOTO_DATA', payload: data}))
+      .catch(error => console.log("Fetch Error: ", error))
   }, [url])
 
+  // get topic names for loading in nav
   useEffect(() => {
-    fetch("http://localhost:8001/api/topics")
+    fetch("/api/topics")
       .then(res => res.json())
       .then(data => dispatch({ type: 'SET_TOPIC_DATA', payload: data}))
+      .catch(error => console.log("Fetch Error: ", error))
   }, [])
 
   const toggleFavStatus = (item) => {
@@ -63,6 +69,7 @@ export default function useApplicationData() {
     dispatch({ type: 'TOGGLE_MODAL' });
   };
 
+  // set data that is to be displayed in the modal
   const getFocusedPhotoData = (photo) => {
     dispatch({ type: 'SET_FOCUSED_PHOTO', payload: photo });
   }

@@ -10,6 +10,10 @@ const PhotoDetailsModal = ({ focusedPhoto, toggleModal, getFocusedPhotoData, tog
     return focusedPhoto?.similar_photos ? Object.values(focusedPhoto.similar_photos) : [];
   }
 
+  const clickHandler = () => {
+    getFocusedPhotoData(photo);
+  }
+
   const focusedPhotoArray = extractSimilarPhotos(focusedPhoto);
 
   return (
@@ -23,17 +27,17 @@ const PhotoDetailsModal = ({ focusedPhoto, toggleModal, getFocusedPhotoData, tog
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <PhotoListItem
-        className="photo-details-modal__image"
         photo={focusedPhoto}
         toggleFavStatus={toggleFavStatus}
         fav={fav}
       />
       <h3 className="photo-details-modal__header">Similar Photos</h3>
       <PhotoList
-        className="photo-details-modal__images"
         photos={focusedPhotoArray}
         toggleFavStatus={toggleFavStatus}
         fav={fav}
+        clickHandler={clickHandler}
+        getFocusedPhotoData={getFocusedPhotoData}
       />
     </div>
   )

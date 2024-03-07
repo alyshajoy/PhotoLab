@@ -6,16 +6,17 @@ import PhotoListItem from "./PhotoListItem";
 const PhotoList = ( {photos, toggleFavStatus, toggleModal, getFocusedPhotoData, className, fav }) => {
 
   return (
-    <ul className={className}>
+    <ul className="photo-list">
       {photos.map((photo) => {
         return (
         <PhotoListItem 
           photo={photo} 
           key={photo.id} 
           toggleFavStatus={toggleFavStatus}
-          toggleModal={toggleModal}
-          getFocusedPhotoData={getFocusedPhotoData}
-          className="photo-list__image"
+          clickHandler={() => {
+            toggleModal();
+            getFocusedPhotoData(photo);
+          }}
           fav={fav}
         />
         )

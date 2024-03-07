@@ -19,7 +19,6 @@ const HomeRoute = (props) => {
         toggleModal={props.toggleModal}
         getFocusedPhotoData={props.getFocusedPhotoData}
         isModalOpen={props.isModalOpen}
-        className="photo-list"
       />
     </div>
   );
