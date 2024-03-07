@@ -43,13 +43,6 @@ export default function useApplicationData() {
   const [url, setUrl] = useState("/api/photos");
   const [likedPhotosDisplay, setLikedPhotosDisplay] = useState(false);
 
-  // toggle whether or not liked photos are displayed
-  // const displayLikedPhotos = () => {
-  //   setLikedPhotosDisplay(!likedPhotosDisplay);
-  //   initialState.photos = initialState.fav;
-  //   console.log("icon clicked");
-  // }
-
   const displayLikedPhotos = () => {
     dispatch({ type: 'DISPLAY_LIKED_PHOTOS' });
   }
