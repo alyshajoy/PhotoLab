@@ -30,6 +30,8 @@ const reducer = (state, action) => {
       return {...state, photos: action.payload};
     case 'SET_TOPIC_DATA':
       return {...state, topics: action.payload};
+    case 'DISPLAY_LIKED_PHOTOS':
+      return {...state, photos: state.fav}
     default:
       throw new Error("The type stated doesn't exist.");
   }
@@ -39,6 +41,18 @@ export default function useApplicationData() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
   const [url, setUrl] = useState("/api/photos");
+  const [likedPhotosDisplay, setLikedPhotosDisplay] = useState(false);
+
+  // toggle whether or not liked photos are displayed
+  // const displayLikedPhotos = () => {
+  //   setLikedPhotosDisplay(!likedPhotosDisplay);
+  //   initialState.photos = initialState.fav;
+  //   console.log("icon clicked");
+  // }
+
+  const displayLikedPhotos = () => {
+    dispatch({ type: 'DISPLAY_LIKED_PHOTOS' });
+  }
 
   // fetch data from new URL with the given topic_id
   const setApiUrl = (topic_id) => {
@@ -79,6 +93,7 @@ export default function useApplicationData() {
     toggleFavStatus,
     toggleModal,
     getFocusedPhotoData,
-    setApiUrl
+    setApiUrl,
+    displayLikedPhotos
   }
 }

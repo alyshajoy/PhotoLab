@@ -11,7 +11,8 @@ const App = () => {
     toggleFavStatus,
     toggleModal,
     getFocusedPhotoData,
-    setApiUrl
+    setApiUrl,
+    displayLikedPhotos
   } = useApplicationData();
 
   return (
@@ -25,6 +26,7 @@ const App = () => {
         getFocusedPhotoData={getFocusedPhotoData}
         isModalOpen={state.isModalOpen}
         setApiUrl={setApiUrl}
+        displayLikedPhotos={displayLikedPhotos}
       />
       {state.isModalOpen && <PhotoDetailsModal 
         toggleModal={toggleModal}
