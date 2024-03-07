@@ -14,7 +14,7 @@ const HomeRoute = (props) => {
       />
       <PhotoList 
         photos={props.photos} 
-        addItemToFav={props.addItemToFav} 
+        toggleFavStatus={props.toggleFavStatus} 
         fav={props.fav}
         toggleModal={props.toggleModal}
         getFocusedPhotoData={props.getFocusedPhotoData}

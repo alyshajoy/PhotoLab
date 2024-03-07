@@ -4,7 +4,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoListItem from 'components/PhotoListItem';
 
-const PhotoDetailsModal = ({ focusedPhoto, toggleModal, getFocusedPhotoData, addItemToFav }) => {
+const PhotoDetailsModal = ({ focusedPhoto, toggleModal, getFocusedPhotoData, toggleFavStatus, fav }) => {
 
   const extractSimilarPhotos = () => {
     return focusedPhoto?.similar_photos ? Object.values(focusedPhoto.similar_photos) : [];
@@ -25,13 +25,15 @@ const PhotoDetailsModal = ({ focusedPhoto, toggleModal, getFocusedPhotoData, add
       <PhotoListItem
         className="photo-details-modal__image"
         photo={focusedPhoto}
-        addItemToFav={addItemToFav}
+        toggleFavStatus={toggleFavStatus}
+        fav={fav}
       />
       <h3 className="photo-details-modal__header">Similar Photos</h3>
       <PhotoList
         className="photo-details-modal__images"
         photos={focusedPhotoArray}
-        addItemToFav={addItemToFav}
+        toggleFavStatus={toggleFavStatus}
+        fav={fav}
       />
     </div>
   )

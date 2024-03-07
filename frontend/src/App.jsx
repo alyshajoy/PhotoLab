@@ -8,7 +8,7 @@ const App = () => {
 
   const {
     state,
-    addItemToFav,
+    toggleFavStatus,
     toggleModal,
     getFocusedPhotoData,
     setApiUrl
@@ -19,7 +19,7 @@ const App = () => {
       <HomeRoute 
         topics={state.topics} 
         photos={state.photos} 
-        addItemToFav={addItemToFav} 
+        toggleFavStatus={toggleFavStatus} 
         fav={state.fav} 
         toggleModal={toggleModal}
         getFocusedPhotoData={getFocusedPhotoData}
@@ -30,7 +30,8 @@ const App = () => {
         toggleModal={toggleModal}
         focusedPhoto={state.focusedPhoto}
         getFocusedPhotoData={getFocusedPhotoData}
-        addItemToFav={addItemToFav}
+        toggleFavStatus={toggleFavStatus}
+        fav={state.fav}
       />}
     </div>
   );

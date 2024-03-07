@@ -3,7 +3,7 @@ import "../styles/PhotoList.scss";
 import "../styles/PhotoDetailsModal.scss";
 import PhotoListItem from "./PhotoListItem";
 
-const PhotoList = ( {photos, addItemToFav, toggleModal, getFocusedPhotoData, className }) => {
+const PhotoList = ( {photos, toggleFavStatus, toggleModal, getFocusedPhotoData, className, fav }) => {
 
   return (
     <ul className={className}>
@@ -12,10 +12,11 @@ const PhotoList = ( {photos, addItemToFav, toggleModal, getFocusedPhotoData, cla
         <PhotoListItem 
           photo={photo} 
           key={photo.id} 
-          addItemToFav={addItemToFav}
+          toggleFavStatus={toggleFavStatus}
           toggleModal={toggleModal}
           getFocusedPhotoData={getFocusedPhotoData}
           className="photo-list__image"
+          fav={fav}
         />
         )
       })}

@@ -10,8 +10,18 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_ITEM_TO_FAV':
-      return { ...state, fav: [...state.fav, action.payload] };
+    case 'TOGGLE_FAV_STATUS':
+      const isItemInFav = state.fav.some(item => item.id === action.payload.id);
+        if (isItemInFav) { // if photo is already in fav array, remove it
+          return {
+            ...state,
+            fav: state.fav.filter(item => item.id !== action.payload.id),
+          };
+        }
+        return { // if photo doesn't yet exist in fav array, add it
+          ...state,
+          fav: [...state.fav, action.payload],
+        };
     case 'TOGGLE_MODAL':
       return { ...state, isModalOpen: !state.isModalOpen };
     case 'SET_FOCUSED_PHOTO':
@@ -45,8 +55,8 @@ export default function useApplicationData() {
       .then(data => dispatch({ type: 'SET_TOPIC_DATA', payload: data}))
   }, [])
 
-  const addItemToFav = (item) => {
-    dispatch({ type: 'ADD_ITEM_TO_FAV', payload: item });
+  const toggleFavStatus = (item) => {
+    dispatch({ type: 'TOGGLE_FAV_STATUS', payload: item });
   };
 
   const toggleModal = () => {
@@ -59,7 +69,7 @@ export default function useApplicationData() {
 
   return {
     state,
-    addItemToFav,
+    toggleFavStatus,
     toggleModal,
     getFocusedPhotoData,
     setApiUrl

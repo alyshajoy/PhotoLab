@@ -3,7 +3,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 
-const PhotoListItem = ({ addItemToFav, photo, className, toggleModal, getFocusedPhotoData }) => {
+const PhotoListItem = ({ toggleFavStatus, photo, className, toggleModal, getFocusedPhotoData, fav }) => {
 
   const {
     location: {city, country},
@@ -13,7 +13,11 @@ const PhotoListItem = ({ addItemToFav, photo, className, toggleModal, getFocused
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton addItemToFav={addItemToFav} item={photo}/>
+      <PhotoFavButton
+        toggleFavStatus={toggleFavStatus}
+        item={photo}
+        fav={fav}
+      />
       <img 
         src={full}
         className={className}
